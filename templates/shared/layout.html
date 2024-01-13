@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!-- =======================Title Page============================= -->
+    <title>{% block title %}{% endblock %}</title>
+<!-- ======================= Header Page============================= -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all-posts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
+    {% block header_references %}{% endblock %}
+</head>
+<body>
+<!-- =======================Start Header Page============================= -->
+<header id="main-navigation">
+    <h1><a href="{% url 'home-page' %}">Programming Blog</a></h1>
+<nav><a href="{% url 'posts-page' %}">All Posts</a></nav>
+</header>
+<!-- =======================End Header Page============================= -->
+<!-- =======================Content Page============================= -->
+{% block content %}{% endblock %}
+<!-- =======================Footer Page============================= -->
+{% block footer_references %}{% endblock %}
+</body>
+</html>

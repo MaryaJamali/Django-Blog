@@ -1,0 +1,22 @@
+{% extends 'shared/layout.html' %}
+{% load static %}
+<!-- =======================Title Page============================= -->
+{% block title %}My Blog{% endblock %}
+{% block header_references %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all-posts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
+{% endblock %}
+<!-- =======================Start Content Page============================= -->
+{% block content %}
+    <section id="all-posts">
+        <h2>This is all POSTS</h2>
+            <!-- ===========Fetching post information================ -->
+            {% for post in all_posts %}
+                <!-- ===========Avoid repeating coding with commands include================ -->
+                {% include 'blog/includes/posts.html' %}
+            {% endfor %}
+    </section>
+{% endblock %}
+<!-- =======================End Content Page============================= -->

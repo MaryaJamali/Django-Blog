@@ -1,0 +1,30 @@
+{% extends 'shared/layout.html' %}
+{% load static %}
+<!-- =======================Title Page============================= -->
+{% block title %}{{ post.title|title}}{% endblock %}
+{% block header_references %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all-posts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
+{% endblock %}
+<!-- =======================Start Content Page============================= -->
+{% block content %}
+    <section id="summary">
+        <h2>{{ post.title }}</h2>
+        <article>
+            <img src="{% static 'img/'|add:post.image %}" alt="post image alt">
+            <address>By {{ post.author }}</address>
+            <div>
+                last updated on
+                <time>{{ post.date|date:'d M Y'}}</time>
+            </div>
+        </article>
+    </section>
+
+    <main>
+    <!-- ==============Entries are applied in lines by order of "linebreaks"================== -->
+        <p>{{ post.content|linebreaks }}</p>
+    </main>
+{% endblock %}
+<!-- =======================End Content Page============================= -->

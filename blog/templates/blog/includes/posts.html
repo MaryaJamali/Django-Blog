@@ -1,0 +1,15 @@
+{% load static %}
+<!-- ===========Duplicate posts================ -->
+<li>
+    <article class="post">
+        <!-- =========Slug is the dynamic and changeable part .... Domain name/posts/slug============= -->
+        <!-- ===========Fetching post information================ -->
+        <a href="{% url 'detail-post-page' slug=post.slug %}">
+            <img src={% static 'img/'|add:post.image %} alt="{{ post.title }}">
+            <div class="post__content">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.short_description}}</p>
+            </div>
+        </a>
+    </article>
+</li>
